@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K Rahamtulla Auto Electrical Works | Batteries, UPS, Starters & Dynamo</title>
+     <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">   <img src="./images/logo1-removebg-preview.png"  style="width: 20%; height: 60%; margin-right: 5px; margin-top: 5px; border-radius: 10px;" /></div>
+           <ul class="nav-links" 
+      style="display: flex; list-style: none; gap: 20px; margin: 0; padding: 0;">
+      <li><a href="#home" style="text-decoration: none; color: #fff;"><h3>Home</h3></a></li>
+      <li><a href="#services" style="text-decoration: none; color: #fff;"><h3>Services</h3></a></li>
+      <li><a href="#products" style="text-decoration: none; color: #fff;"><h3>Products</h3></a></li>
+      <li><a href="#contact" style="text-decoration: none; color: #fff;"><h3>Contact</h3></a></li>
+    </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+  <!-- Background Video -->
+  <video class="background-video" autoplay loop muted playsinline>
+    <source src="./images/instagram_1762075812270.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <div class="hero-content">
+    <div class="hero-text">
+      <h1>K RAHAMTULLA</h1>
+      <h1>AUTO ELECTRICAL WORKS</h1>
+      <p style="color:#3dc50b;">Your Trusted Partner for Complete Auto Electrical Solutions</p>
+      <p style="font-size: 1.1rem; color:#3dc50b;">
+        All Types of Sales and Services for UPS, Batteries, Starters, Dynamo & More
+      </p>
+      <a href="#contact" class="cta-button">Get in Touch</a>
+    </div>
+
+    <div class="hero-image">
+      <img src="./images/logo1-removebg-preview.png" alt="Auto Electrical Products" id="heroProductImg">
+    </div>
+  </div>
+</section>
+
+
+<section id="services" class="section" style="position: relative; overflow: hidden; padding: 50px 0;">
+  <!-- ⚡ Electric Particle Background -->
+  <canvas id="electricParticles"></canvas>
+
+  <div class="container" style="max-width: 1200px; margin: auto; position: relative; z-index: 2;">
+    <h2 class="section-title" style="text-align: center; color: #38de29; margin-bottom: 40px;">Our Services</h2>
+
+    <!-- Continuous Marquee -->
+    <div class="marquee-container">
+      <div class="marquee-track" id="marqueeTrack">
+        <!-- Service Cards (Single Set) -->
+        <div class="service-card">
+          <img src="./images/49469-9-automotive-battery-photos-free-hd-image.png" alt="Battery Solutions">
+          <h3>Battery Solutions</h3>
+          <p>Complete battery sales, installation, and maintenance for all vehicle types.</p>
+        </div>
+        <div class="service-card">
+          <img src="./images/exide-gqp-1450-home-inverter-1000x1000-removebg-preview.png" alt="UPS Systems">
+          <h3>UPS Systems</h3>
+          <p>Industrial and commercial UPS systems with installation and AMC services.</p>
+        </div>
+        <div class="service-card">
+          <img src="./images/starter1_product.png" alt="Starter Repair">
+          <h3>Starter Repair</h3>
+          <p>Expert starter motor repair and replacement with quality parts.</p>
+        </div>
+        <div class="service-card">
+          <img src="./images/dynamo.webp" alt="Dynamo Services">
+          <h3>Dynamo Services</h3>
+          <p>Professional dynamo and alternator repair, rewinding, and diagnostics.</p>
+        </div>
+        <div class="service-card">
+          <img src="./images/Armature-removebg-preview.png" alt="Electrical Repairs">
+          <h3>Electrical Repairs</h3>
+          <p>Auto electrical diagnostics and repairs — wiring, lighting, and more.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    /* ⚡ Particle canvas background */
+    #electricParticles {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at center, #000000, #020202);
+      z-index: 1;
+    }
+
+    .marquee-container {
+      overflow: hidden;
+      width: 100%;
+      position: relative;
+    }
+
+    .marquee-track {
+      display: flex;
+      gap: 30px;
+      width: max-content;
+      animation: scroll-marquee 30s linear infinite;
+    }
+
+    .service-card {
+      flex: 0 0 280px;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s;
+    }
+
+    .service-card img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .service-card h3 {
+      margin-top: 15px;
+      color: #3dc50b;
+    }
+
+    .service-card p {
+      color: #333;
+      font-size: 0.9rem;
+    }
+
+    @keyframes scroll-marquee {
+      from {
+        transform: translateX(0);
+      }
+      to {
+        transform: translateX(-50%);
+      }
+    }
+  </style>
+
+  <script>
+    // ⚡ Electric particle animation
+    const canvas = document.getElementById('electricParticles');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+
+    function resize() {
+      canvas.width = window.innerWidth;
+      canvas.height = document.getElementById("services").offsetHeight;
+    }
+
+    window.addEventListener('resize', resize);
+    resize();
+
+    for (let i = 0; i < 80; i++) {
+      particles.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        speedX: (Math.random() - 0.5) * 1,
+        speedY: (Math.random() - 0.5) * 1,
+        radius: Math.random() * 2 + 1,
+      });
+    }
+
+    function drawParticles() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = 'rgba(0, 255, 100, 0.8)';
+      ctx.shadowBlur = 20;
+      ctx.shadowColor = '#39ff14';
+
+      particles.forEach(p => {
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+        ctx.fill();
+        p.x += p.speedX;
+        p.y += p.speedY;
+
+        if (p.x < 0 || p.x > canvas.width) p.speedX *= -1;
+        if (p.y < 0 || p.y > canvas.height) p.speedY *= -1;
+      });
+
+      requestAnimationFrame(drawParticles);
+    }
+
+    drawParticles();
+
+    // 🔁 Duplicate marquee content for smooth looping
+    const marquee = document.getElementById('marqueeTrack');
+    marquee.innerHTML += marquee.innerHTML; // Clone content
+  </script>
+</section>
+
+
+
+
+  <section id="products" class="section products" style="background: url('./images/dynamo1.jpg') center/cover no-repeat; padding: 60px 0; position: relative;">
+  <!-- Dark overlay -->
+  <div style="position: absolute; inset: 0; background: rgba(0, 0, 0, 0.55);"></div>
+
+  <div class="container" style="position: relative; z-index: 1; max-width: 1200px; margin: auto; color: white;">
+    <h2 class="section-title" style="text-align: center; color: #38de29; margin-bottom: 40px;">Products We Offer</h2>
+
+    <div class="product-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px;">
+
+      <!-- 1. Automotive Batteries -->
+      <div class="product-item">
+        <img src="./images/49469-9-automotive-battery-photos-free-hd-image.png" alt="Automotive Batteries">
+        <h4>🔋 Automotive Batteries</h4>
+        <p>Car, truck, and heavy vehicle batteries from trusted brands with warranty and installation support.</p>
+      </div>
+
+      <!-- 2. UPS Units -->
+      <div class="product-item">
+        <img src="./images/exide-gqp-1450-home-inverter-1000x1000-removebg-preview.png" alt="UPS Units">
+        <h4>⚡ UPS Units</h4>
+        <p>Reliable UPS systems for homes, offices, and industrial setups. Includes service and AMC support.</p>
+      </div>
+
+      <!-- 3. Starter Motors -->
+      <div class="product-item">
+        <img src="./images/starter1_product.png" alt="Starter Motors">
+        <h4>🔧 Starter Motors</h4>
+        <p>Durable starter motors for all types of vehicles with expert installation and repairs.</p>
+      </div>
+
+      <!-- 4. Alternators -->
+      <div class="product-item">
+        <img src="./images/dynamo.webp" alt="Alternators">
+        <h4>⚙️ Alternators</h4>
+        <p>Premium alternators and dynamos ensuring stable electrical performance for vehicles.</p>
+      </div>
+
+      <!-- 5. Generators -->
+      <div class="product-item">
+        <img src="./images/purepng.com-generatorgeneratorelectricity-generationmechanical-energyelectrical-powerpower-source-1701528349950iesaz.png" alt="Generators">
+        <h4>🔌 Generators</h4>
+        <p>High-performance generators for residential, commercial, and industrial use.</p>
+      </div>
+
+      <!-- 6. Armatures & Coils -->
+      <div class="product-item">
+        <img src="./images/Armature-removebg-preview.png" alt="Armature and Coils">
+        <h4>🌀 Armatures & Coils</h4>
+        <p>High-quality armatures, coils, and rewinding services for starters and alternators.</p>
+      </div>
+
+      <!-- 7. Wiring Harness -->
+      <div class="product-item">
+        <img src="./images/aaw-wiring-harnesses-removebg-preview.png" alt="Wiring Harness">
+        <h4>🔌 Wiring Harness</h4>
+        <p>Custom-designed wiring harness solutions for cars, trucks, and heavy-duty vehicles.</p>
+      </div>
+
+      <!-- 8. Lighting Systems -->
+      <div class="product-item">
+        <img src="./images/b569ad9e-e81d-43e9-a6db-1c56afe99229-removebg-preview.png" alt="Lighting Systems">
+        <h4>💡 Vehicle Lighting</h4>
+        <p>Full range of headlights, fog lamps, and LED lighting solutions for all vehicles.</p>
+      </div>
+
+      <!-- 9. Voltage Regulators -->
+      <div class="product-item">
+        <img src="./images/EBA_Volt_Reg_04-removebg-preview.png" alt="Voltage Regulators">
+        <h4>⚙️ Voltage Regulators</h4>
+        <p>Voltage regulators and rectifiers ensuring proper power management for your vehicle.</p>
+      </div>
+
+      <!-- 10. Fuses & Relays -->
+      <div class="product-item">
+        <img src="./images/rfuse-relay-removebg-preview.png" alt="Fuses and Relays">
+        <h4>🧩 Fuses & Relays</h4>
+        <p>Wide range of fuses, relays, and electrical safety components for all auto systems.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <style>
+    .product-item {
+      backdrop-filter: blur(10px);
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      transition: 0.4s ease;
+    }
+
+    .product-item:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 20px rgba(56, 222, 41, 0.4);
+    }
+
+    .product-item img {
+      width: 100%;
+      height: 150px;
+      object-fit: contain;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+
+    .product-item h4 {
+      margin-top: 10px;
+      color: #38de29;
+      font-weight: 600;
+    }
+
+    .product-item p {
+      color: #f0f0f0;
+      font-size: 14px;
+      line-height: 1.4;
+    }
+  </style>
+</section>
+
+
+<section class="section brands" style="text-align: center; padding: 40px 0; background-color: #d1b5b5;">
+  <div class="container">
+    <h2 class="section-title" style="color: #1d4d0c; margin-bottom: 20px;">Premium Brands We Work With</h2>
+    
+    <div class="brand-list" style="
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 40px;
+      max-width: 900px;
+      margin: 0 auto;
+    ">
+      
+      <div class="brand-item" style="width: 150px; text-align: center;">
+        <img src="./images/exide-removebg-preview.png" alt="EXIDE" style="width: 100%; max-width: 120px; height: 80px; object-fit: contain;">
+        <p style="color: #fff; margin-top: 8px; font-weight: bold;">EXIDE</p>
+      </div>
+      
+      <div class="brand-item" style="width: 150px; text-align: center;">
+        <img src="./images/amaron-logo-1-removebg-preview.png" alt="AMARON" style="width: 100%; max-width: 120px; height: 80px; object-fit: contain;">
+        <p style="color: #fff; margin-top: 8px; font-weight: bold;">AMARON</p>
+      </div>
+      
+      <div class="brand-item" style="width: 150px; text-align: center;">
+        <img src="./images/luminous-removebg-preview.png" alt="LUMINOUS" style="width: 100%; max-width: 120px; height: 80px; object-fit: contain;">
+        <p style="color: #fff; margin-top: 8px; font-weight: bold;">LUMINOUS</p>
+      </div>
+      
+      <div class="brand-item" style="width: 150px; text-align: center;">
+        <img src="./images/lucas-tvs-removebg-preview.png" alt="LUCAS TVS" style="width: 100%; max-width: 120px; height: 80px; object-fit: contain;">
+        <p style="color: #fff; margin-top: 8px; font-weight: bold;">LUCAS TVS</p>
+      </div>
+      
+      <div class="brand-item" style="width: 150px; text-align: center;">
+        <img src="./images/microtech-removebg-preview.png" alt="MICROTEK" style="width: 100%; max-width: 120px; height: 80px; object-fit: contain;">
+        <p style="color: #fff; margin-top: 8px; font-weight: bold;">MICROTEK</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+    <section >
+        <!-- <div class="container">
+            <h2 class="section-title" style="color: white;">Contact Us</h2>
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <div class="contact-icon">📞</div>
+                    <div class="contact-info">
+                        <h3>Call Us</h3>
+                        <p><a href="tel:+917353540718">+91 7353540718</a></p>
+                        <p><a href="tel:+916363728679">+91 6363728679</a></p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">📧</div>
+                    <div class="contact-info">
+                        <h3>Email Us</h3>
+                        <p><a href="mailto:rahamtullak8854@gmail.com">rahamtullak8854@gmail.com</a></p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">📍</div>
+                    <div class="contact-info">
+                        <h3>Visit Us</h3>
+                        <p>19th cross HBR Layout, near Hasnain condiments<br>
+                        Nagawara, Bengaluru<br>
+                        Karnataka, 560 043</p>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="tel:+917353540718" class="cta-button">Call Now for Service</a>
+            </div>
+        </div> -->
+          <footer style="background-color: #222; color: #fff; padding: 40px 20px; font-family: Arial, sans-serif;">
+  <div style="display: flex; justify-content: space-between; flex-wrap: wrap; max-width: 1200px; margin: 0 auto;">
+    <!-- About Section -->
+    <div style="flex: 1; min-width: 200px; margin-right: 20px;">
+      <h3 style="color: #3dc50b;">K Rahamtulla Auto Electrical Works</h3>
+      <p style="font-size: 14px;">A small river named Duden flows by their place and supplies it with the necessary regalia.</p>
+    
+                  
+
+      <div style="text-align: center; margin-top: 3rem;">
+                <a href="tel:+917353540718" class="cta-button">Call Now for Service</a>
+            </div>
+      <a href="#" style="color: #f9b233; text-decoration: none; font-size: 14px;">read more →</a>
+    </div>
+   
+    
+    <div style="flex: 1; min-width: 200px; margin-right: 20px;">
+  <h3 style="color: #3dc50b;">Contact Details</h3>
+  <ul style="list-style: none; padding: 0; margin: 0; font-size: 14px; line-height: 2; color: #fff;">
+    
+    <li style="margin-bottom: 10px;">
+      <div class="contact-info">
+        <h4 style="color: #aade98; margin: 0;">Call Us</h4>
+        <p style="margin: 0;"><a href="tel:+917353540718" style="color: #fff; text-decoration: none;">+91 7353540718</a></p>
+        <p style="margin: 0;"><a href="tel:+916363728679" style="color: #fff; text-decoration: none;">+91 6363728679</a></p>
+      </div>
+    </li>
+    
+    <li>
+      <div class="contact-info">
+        <h4 style="color: #aade98; margin: 0;">Email Us</h4>
+        <p style="margin: 0;"><a href="mailto:rahamtullak8854@gmail.com" style="color: #fff; text-decoration: none;">rahamtullak8854@gmail.com</a></p>
+      </div>
+    </li>
+    
+  </ul>
+</div>
+
+ <!-- Categories Section -->
+   <div style="flex: 1; min-width: 200px; margin-right: 20px;">
+  <h3 style="color: #3dc50b;">Categories</h3>
+  <ul style="list-style: none; padding: 0; margin: 0; font-size: 14px; line-height: 2;">
+    
+    <li style="margin-bottom: 8px;">
+      <a href="#" style="color: #fff; text-decoration: none; font-weight: bold;">Sell & Services</a><br>
+      <span style="color: #ccc; font-size: 13px;">Battery, UPS, dynamo, and truck starter repair, replacement, and installation services.</span>
+    </li>
+    
+    <li style="margin-bottom: 8px;">
+      <a href="#" style="color: #fff; text-decoration: none; font-weight: bold;">Dealership Merchant</a><br>
+      <span style="color: #ccc; font-size: 13px;">Authorized distributor for leading auto electrical brands and accessories.</span>
+    </li>
+    
+    <li style="margin-bottom: 8px;">
+      <a href="#" style="color: #fff; text-decoration: none; font-weight: bold;">Help & Support</a><br>
+      <span style="color: #ccc; font-size: 13px;">Get assistance with installations, maintenance tips, and warranty claims.</span>
+    </li>
+    
+  </ul>
+</div>
+
+    <!-- Tag Cloud Section -->
+    <!-- Tag Cloud Section -->
+<div style="flex: 1; min-width: 200px; margin-right: 20px;">
+  <h3 style="color: #fff;">Main Persons</h3>
+  <div style="display: flex; flex-wrap: wrap; gap: 10px; font-size: 14px;">
+    <a href="#" style="color: #fff; text-decoration: none; background: #bff178; padding: 15px 70px; border-radius: 5px; background-image: url(./images/allaha.png);
+  background-repeat: no-repeat;
+  background-size: cover; 
+  background-position: center;"></a>
+    <a href="#" style="color: #fff; text-decoration: none; background: #333; padding: 5px 10px; border-radius: 5px;">Owner Mr. K Rahamthulla</a>
+    <a href="#" style="color: #fff; text-decoration: none; background: #333; padding: 5px 10px; border-radius: 5px;">Mr. Ali Akbar K</a>
+    <a href="#" style="color: #fff; text-decoration: none; background: #333; padding: 5px 10px; border-radius: 5px;">Mr.Sulthan E Azam </a>
+    <a href="#" style="color: #fff; text-decoration: none; background: #333; padding: 5px 10px; border-radius: 5px;">Mr. Rohan Jhon</a>
+    <a href="#" style="color: #fff; text-decoration: none; background: #333; padding: 5px 10px; border-radius: 5px;"></a>
+    <a href="#" style="color: #fff; text-decoration: none; background: #333; padding: 5px 10px; border-radius: 5px;"></a>
+    <a href="#" style="color: #fff; text-decoration: none; background: #333; padding: 5px 10px; border-radius: 5px;"></a>
+    <a href="#" style="color: #fff; text-decoration: none; background: #333; padding: 5px 10px; border-radius: 5px;"></a>
+  </div>
+  <a href="#" style="color: #f9b233; text-decoration: none; font-size: 14px;">You can contect them →</a>
+</div>
+
+    <!-- Subscribe Section -->
+<div style="flex: 1; min-width: 200px;">
+  <h3 style="color: #fff;">Subscribe</h3>
+  <form style="display: flex; align-items: center;">
+    <input type="email" placeholder="Enter email address" style="padding: 10px; flex: 1; font-size: 14px; border: none; border-radius: 5px 0 0 5px;">
+    <button type="submit" style="background: #f9b233; color: #fff; border: none; padding: 8px; border-radius: 0 5px 5px 0; cursor: pointer;">→</button>
+  </form>
+
+  <div style="margin-top: 20px; display: flex; align-items: center; gap: 10px;">
+    <a href="https://twitter.com" target="_blank" style="color: #fff; text-decoration: none; font-size: 18px;">
+      <i class="fab fa-twitter"></i>
+    </a>
+    <a href="https://facebook.com" target="_blank" style="color: #fff; text-decoration: none; font-size: 18px;">
+      <i class="fab fa-facebook-f"></i>
+    </a>
+    <a href="https://instagram.com" target="_blank" style="color: #fff; text-decoration: none; font-size: 18px;">
+      <i class="fab fa-instagram"></i>
+    </a>
+    <a href="mailto:your-email@example.com" style="color: #fff; text-decoration: none; font-size: 18px;">
+      <i class="fas fa-envelope"></i>
+    </a>
+  </div>
+
+  <!-- Google Maps Location -->
+  <div style="margin-top: 20px;">
+    <a href="https://www.google.com/maps/place/Tea+Talkies+%26+Brew/@15.1527621,77.3747422,17z/data=!3m1!4b1!4m6!3m5!1s0x3bb6e5375dcdf413:0xbca32a4971b64263!8m2!3d15.1527621!4d77.3747422!16s%2Fg%2F11wp7rx7f4?entry=ttu&g_ep=EgoyMDI0MTIwMi4wIKXMDSoASAFQAw%3D%3D" 
+       target="_blank" 
+       style="color: #fff; text-decoration: none; font-size: 16px; background: #333; padding: 10px 15px; border-radius: 5px; display: inline-block;">
+      📍 Find Us on Google Maps
+    </a>
+  </div>
+</div>
+
+
+    </div>
+  </div>
+  <div style="text-align: center; margin-top: 40px; font-size: 12px;">
+    <p style="font-size: small; ">
+        &copy; 2024 Online Menu. All rights reserved by ❤
+        <a href="https://ali-akbar-k.github.io/PORTFOLIO/" style="font-size: small; text-decoration: none; ">Mr. Ali Akbar K</a>.
+      </p style="font-size: small; ">
+    <a href="#" style="color: #fff; margin-right: 10px; text-decoration: none;">Terms</a>
+    <a href="#" style="color: #fff; margin-right: 10px; text-decoration: none;">Privacy</a>
+    <a href="#" style="color: #fff; text-decoration: none;">Compliances</a>
+  </div>
+</footer>
+    </section>
+
+    
+</body>
+</html>
